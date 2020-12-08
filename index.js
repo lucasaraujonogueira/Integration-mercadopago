@@ -65,7 +65,7 @@ app.post("/not",(req, res) => {
     res.send("ok");
 })
 
-app.listen(3009, (req, res, err)=> {
+app.listen(80, (req, res, err)=> {
     console.log("Servidor Rodando com sucesso");
     if(err) console.log("Houve um erro");
 })
