@@ -19,7 +19,7 @@ app.get('/',(req, res)=> {
 app.get('/pagar',async (req, res) => {
     // PRECO AVALIADO EM QUANTIDADE  =  QUANTIDADE =  REQ.BODY.QUANTIDADE
   
-    let email_pagador = "lucasteste12@gmail.com";
+    let email_pagador = "josephavelino@hotmail.com";
     let id = "" + Date.now(); // UTILIZANDO NO FORMATO DATA E CONVERTENDO EM STRING 
 
     // Fazendo venda generica 
