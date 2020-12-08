@@ -17,7 +17,6 @@ app.get('/',(req, res)=> {
 
 // Rota de Pagamento
 app.get('/pagar',async (req, res) => {
-   
     // PRECO AVALIADO EM QUANTIDADE  =  QUANTIDADE =  REQ.BODY.QUANTIDADE
   
     let email_pagador = "lucasteste12@gmail.com";
@@ -58,6 +57,13 @@ app.get('/pagar',async (req, res) => {
 
 })
 
+
+// Rota de notificação 
+app.post("/not",(req, res) => {
+    // Parametros dinamicos da URL
+    console.log(req.query)
+    res.send("ok");
+})
 
 app.listen(3009, (req, res, err)=> {
     console.log("Servidor Rodando com sucesso");
