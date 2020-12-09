@@ -18,13 +18,13 @@ app.get('/',(req, res)=> {
 // Rota de Pagamento
 app.get('/pagar',async (req, res) => {
     // PRECO AVALIADO EM QUANTIDADE  =  QUANTIDADE =  REQ.BODY.QUANTIDADE
-  
+
     let email_pagador = "josephavelino@hotmail.com";
     let id = "" + Date.now(); // UTILIZANDO NO FORMATO DATA E CONVERTENDO EM STRING 
 
     // Fazendo venda generica 
         // Criando um OBJ JSON DEFINANDO PAGAMENTOS
-        let dados = {
+        let date = {
             items: [
                 item = {
                     // ID PRA SABER SE O PAGAMENTO FOI FEITO OU NÃO
@@ -47,12 +47,9 @@ app.get('/pagar',async (req, res) => {
         }
 
        
-        try {
-            var pagamento = await MercadoPago.preferences.create(dados);
-            return res.redirect(pagamento.body.init_point);
-        } catch (error) {
-            return res.send(error.message);
-        }
+        let pagamento = await MercadoPago.preferences.create(date);
+        console.log(pagamento);
+        return res.redirect(pagamento.body.init_point);
        
            
 
