@@ -51,19 +51,35 @@ app.get('/pagar',async (req, res) => {
              console.log(pagamento);
              return res.redirect(pagamento.body.init_point);
        } catch (error) {
-          console.log(error.message);
+          console.log(error.message)
        }
        
-       
-           
-
 })
 
 
 // Rota de notificação 
+//   Verificar se o pagamento realmente existe 
 app.post("/not",(req, res) => {
     // Parametros dinamicos da URL
-    console.log(req.query)
+    let id = req.query.id;
+
+    // Consultando no banco de dados do mercado pago se o pagamento existe
+    setTimeout(() => {
+        // Filtrando o pagamento pelo ID
+        let filtro = {
+            "order.id": id
+        }
+        // Realizando a busca
+        MercadoPago.payment.search({
+            qs: filtro
+        }).then(data => {
+            console.log(data);
+        })
+        .catch(error =>  {
+            console.log(error)
+        })
+    }, 20000)
+
     res.send("ok");
 })
 
