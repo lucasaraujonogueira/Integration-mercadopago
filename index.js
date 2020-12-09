@@ -46,18 +46,15 @@ app.get('/pagar',async (req, res) => {
             external_reference: id
         }
 
-        /* 
+       
         try {
             var pagamento = await MercadoPago.preferences.create(dados);
-            console.log(pagamento);
             return res.redirect(pagamento.body.init_point);
         } catch (error) {
-            return res.send(error);
+            return res.send(error.message);
         }
-        */
-            var pagamento = await MercadoPago.preferences.create(dados);
-            console.log(pagamento);
-            return res.redirect(pagamento.body.init_point);
+       
+           
 
 })
 
