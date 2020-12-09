@@ -58,7 +58,6 @@ app.get('/pagar',async (req, res) => {
 
 
 // Rota de notificação 
-//   Verificar se o pagamento realmente existe 
 app.post("/not",(req, res) => {
     // Parametros dinamicos da URL
     let id = req.query.id;
@@ -73,7 +72,15 @@ app.post("/not",(req, res) => {
         MercadoPago.payment.search({
             qs: filtro
         }).then(data => {
-            console.log(data);
+            // tRAZENDO O PAGAMENTO
+            let pagamento = data.body.results[0];
+            // VERIFICANDO SE O PAGAMENTO EXISTE
+            if(pagamento != undefined){
+                console.log(pagamento)
+            }
+            else{
+                console.log("Pagamento não existe")
+            }
         })
         .catch(error =>  {
             console.log(error)
