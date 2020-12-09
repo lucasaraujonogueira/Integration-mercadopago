@@ -77,6 +77,10 @@ app.post("/not",(req, res) => {
             // VERIFICANDO SE O PAGAMENTO EXISTE
             if(pagamento != undefined){
                 console.log(pagamento)
+                // Para ver o tipo do pagamento
+                console.log(pagamento.external_reference)
+                // status do pagamento
+                console.log(pagamento.status)
             }
             else{
                 console.log("Pagamento não existe")
